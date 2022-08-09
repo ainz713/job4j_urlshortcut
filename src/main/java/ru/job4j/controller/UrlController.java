@@ -46,8 +46,7 @@ public class UrlController {
         Url e;
         if (url.isPresent()) {
             e = url.get();
-            e.setStat(e.getStat() + 1);
-            this.urlRepository.save(e);
+            urlRepository.increaseStat(e);
             return new ResponseEntity<>(
                     e.getText(),
                     HttpStatus.MOVED_PERMANENTLY
